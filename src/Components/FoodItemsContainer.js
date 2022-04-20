@@ -8,11 +8,11 @@ function FoodItemsContainer({foodItems, dietFilters}){
 
     dietFilters.forEach((filter, index) => filter ? filteredDietOptions.push(allDietOptions[index]) : null)
 
-    //We have: filteredDietOptions (an array of all of the currently 'checked' filters) and all FoodItems
-    //We need to: use the filtered options and the FoodItems to determine which fooditems contain ALL of the currently selected filters
-    //To do this: for each diet option that is checked, filter the FoodItems array
+    const filteredFoodItems = []
 
-    const renderFoodItems = foodItems.map(foodItem => <FoodItemCard key={foodItem.id} foodItem={foodItem}/>)
+    foodItems.forEach(fooditem => filteredDietOptions.every(option => fooditem.diets.some(diet => diet.diet_name === option)) ? filteredFoodItems.push(fooditem) : null)
+
+    const renderFoodItems = filteredFoodItems.map(foodItem => <FoodItemCard key={foodItem.id} foodItem={foodItem}/>)
 
     return (
         <div id="food-items-container">
