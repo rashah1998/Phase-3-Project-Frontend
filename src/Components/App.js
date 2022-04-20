@@ -22,7 +22,7 @@ function App() {
     <div className='App'>
       <div className="banner">My FlatDiet</div>
       <div id="page-content">
-        <Sidebar foodItems={foodItems} setFoodItems={setFoodItems} setDietFilters={setDietFilters} dietFilters={dietFilters}/>
+        <Sidebar setDietFilters={setDietFilters} dietFilters={dietFilters}/>
         <FoodItemsContainer foodItems={foodItems} dietFilters={dietFilters}/>
       </div>
     </div>

@@ -1,10 +1,12 @@
 import Search from "./Search"
+import MealPlanList from "./MealPlanList"
 
-function Sidebar({foodItems, setFoodItems, setDietFilters, dietFilters}) {
+function Sidebar({setDietFilters, dietFilters}) {
 
     return (
         <div id="sidebar">
-            <Search foodItems={foodItems} setFoodItems={setFoodItems} dietFilters={dietFilters} setDietFilters={setDietFilters}/>
+            <Search dietFilters={dietFilters} setDietFilters={setDietFilters}/>
+            <MealPlanList />
         </div>
     )
 }

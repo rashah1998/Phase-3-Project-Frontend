@@ -6,6 +6,10 @@ function FoodItemCard({foodItem}) {
     
     const renderDiets = diets.map(diet => <h5 key={diet.id}>{diet.diet_name}</h5>)
 
+    function handleAddMeal(e) {
+
+    }
+
     return (
         <div className="card-container">
             <div className="image-container">
@@ -19,11 +23,10 @@ function FoodItemCard({foodItem}) {
                 <p>Calories per Serving: {number_of_calories}</p> 
             </div>
             {renderDiets}
-            <button>
-                {/* <a>
-
-                </a> */}
-            </button>
+            <form onSubmit={handleAddMeal}>
+                <input type="number" step="0.1" placeholder="Number of Servings to Add"></input>
+                <input type="submit" value="Add to Meal Plan" />
+            </form>
         </div>
     )
 }
