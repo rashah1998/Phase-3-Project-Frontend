@@ -17,12 +17,20 @@ function App() {
 
   useEffect(getFoodItems, [])
 
+  const [hide, setHide]=useState(true)
+  function handleHide(){
+    setHide(!hide)
+  }
+
 
   return (
     <div className='App'>
-      <div className="banner">My FlatDiet</div>
+      <div className="banner"><h1>My FlatDiet</h1></div>
       <div id="page-content">
-        <Sidebar foodItems={foodItems} setFoodItems={setFoodItems} setDietFilters={setDietFilters} dietFilters={dietFilters}/>
+      <div id="flex-side">
+        {hide? <button id="sidebar-button" onClick={handleHide} >Hide Panel</button>: <button id="sidebar-button" onClick={handleHide} >Show Panel</button>}
+        {hide ? <Sidebar foodItems={foodItems} setFoodItems={setFoodItems} setDietFilters={setDietFilters} dietFilters={dietFilters} /> : null}
+      </div>
         <FoodItemsContainer foodItems={foodItems} dietFilters={dietFilters}/>
       </div>
     </div>

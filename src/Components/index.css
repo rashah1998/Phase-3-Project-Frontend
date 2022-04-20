@@ -1,13 +1,16 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
 
+/* const mainColor = #3f4760; */
+/* const accentColor = #96d7c6 */
+/* const fontColor = #ffffff */
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Fredoka', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background:  #6c8cbf;
+  margin: 10px;
 }
 
 code {
@@ -16,28 +19,96 @@ code {
 }
 
 .banner {
-  min-height: 100px;
-  font-size: 50px;
+  min-height: 130px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 35px;
+  background-color: rgba(0,0,0,0);
+  color: #ffffff;
+}
+
+.banner h1{
   text-align: center;
+  margin: 10px;
 }
 
 #page-content {
   display: flex;
 }
-
-#sidebar {
-  min-height: 100vh;
-  min-width: 350px; 
-  margin-right: 10px;
-  margin-left: 10px;
-  border: 2px solid black;
+#flex-side{
+  display: flex;
+  flex-direction: column;
+  max-width: 680px;
 }
 
-/* #filters label {
-  height:100%;
+#sidebar {
+  max-height: 100vh;
+  max-width: 400px; 
   width: 100%;
-  padding: 10px;
-} */
+  margin-right: 32px;
+  margin-left: 10px;
+  /* padding: 5px 5px 5px 5px; */
+  border: 4px solid #ffffff;
+  border-radius: 15px;
+  background: #ffffff;
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  
+}
+
+#sidebar input{
+  font-family: 'Fredoka', sans-serif;
+  font-size: 30px;
+  text-align: center;
+  margin: 15px;
+  border: 2px solid #3f4760;
+}
+
+#sidebar-button{
+  font-family: 'Fredoka', sans-serif;
+  font-size: 20px;
+  color: #3f4760;
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 400px; 
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+#filters{
+  margin: 10px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+#filters label{
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  color: #3f4760;
+  margin: 1px;
+}
+
+#filters label:hover{
+  color: #ffffff;
+}
+
+#filters legend{
+  font-size: 25px;
+  color: #3f4760;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+input[type="checkbox"]:checked{
+  box-shadow: 0 0 0 3px #f8e983
+}
 
 #food-items-container {
   display: flex;
@@ -47,13 +118,35 @@ code {
 }
 
 .card-container{
-  min-width: 400px;
+  width: 380px;
   overflow: hidden;
   box-shadow:0px 0px 15px -5px;
-  margin: 20px;   
+  margin: 20px;
+  background: linear-gradient(to top, rgba(255,255,255,0.7),rgba(255,255,255,0.2)); 
+  text-align: center;
+  
+}
+
+.card-details{
+  text-align: left;
+  margin-left: 10px;
+}
+
+#card-button{
+  font-family: 'Fredoka', sans-serif;
+  font-size: 20px;
+  color: #3f4760;
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  width: 250px;
+  height: 40px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .image-container img {
   overflow: hidden;
-  height: 200px;
+  height: 350px;
+  width: 425px;
 }
