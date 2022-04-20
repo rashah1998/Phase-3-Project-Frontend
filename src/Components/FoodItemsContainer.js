@@ -1,6 +1,6 @@
 import FoodItemCard from "./FoodItemCard"
 
-function FoodItemsContainer({foodItems, dietFilters}){
+function FoodItemsContainer({foodItems, dietFilters, mealPlan, setMealPlan}){
 
     const allDietOptions = ["Carnivorous", "Keto", "Pescatarian", "Vegan", "Vegetarian", "Mediterranean", "High Protein", "Paleo"]
 
@@ -12,7 +12,7 @@ function FoodItemsContainer({foodItems, dietFilters}){
 
     foodItems.forEach(fooditem => filteredDietOptions.every(option => fooditem.diets.some(diet => diet.diet_name === option)) ? filteredFoodItems.push(fooditem) : null)
 
-    const renderFoodItems = filteredFoodItems.map(foodItem => <FoodItemCard key={foodItem.id} foodItem={foodItem}/>)
+    const renderFoodItems = filteredFoodItems.map(foodItem => <FoodItemCard key={foodItem.id} foodItem={foodItem} mealPlan={mealPlan} setMealPlan={setMealPlan}/>)
 
     return (
         <div id="food-items-container">

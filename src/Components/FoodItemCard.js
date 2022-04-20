@@ -1,13 +1,46 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-function FoodItemCard({foodItem}) {
+function FoodItemCard({foodItem, mealPlan, setMealPlan}) {
+
+    const [servings, setServings] = useState("")
 
     const {item_name, number_of_calories, serving_size, image, diets} = foodItem
     
     const renderDiets = diets.map(diet => <h5 key={diet.id}>{diet.diet_name}</h5>)
 
-    function handleAddMeal(e) {
+    function handleServings(e) {
+        setServings(e.target.value)
+    }
 
+    function handleAddMeal(e) {
+        e.preventDefault()
+        
+        const updatedItem = {
+            ...foodItem,
+            on_meal_plan: true,
+            number_of_servings: foodItem.number_of_servings + parseInt(servings)
+        }
+
+        fetch(`http://localhost:9292/fooditems/${foodItem.id}`,
+        {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+              },
+              body: JSON.stringify(updatedItem)
+        }).then(resp => resp.json())
+        .then(modifiedItem => {
+            if(mealPlan.some(item => item.item_name === updatedItem.item_name)){
+                const updateMealPlan = mealPlan
+                updateMealPlan[mealPlan.findIndex(item => item.item_name === updatedItem.item_name)].number_of_servings += parseInt(servings)
+                setMealPlan(updateMealPlan)
+            } else {
+                setMealPlan([...mealPlan, modifiedItem])
+            }
+        })
+
+        e.target.reset()
     }
 
     return (
@@ -24,7 +57,7 @@ function FoodItemCard({foodItem}) {
             </div>
             {renderDiets}
             <form onSubmit={handleAddMeal}>
-                <input type="number" step="0.1" placeholder="Number of Servings to Add"></input>
+                <input type="number" step="0.1" placeholder="Number of Servings" onChange={handleServings}></input>
                 <input type="submit" value="Add to Meal Plan" />
             </form>
         </div>
