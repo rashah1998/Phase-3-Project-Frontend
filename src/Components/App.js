@@ -1,7 +1,9 @@
-import FoodItemsContainer from './FoodItemsContainer'
 import {useEffect, useState} from 'react'
+import {Switch, Route, Link} from 'react-router-dom'
+import FoodItemsContainer from './FoodItemsContainer'
 import Sidebar from "./Sidebar"
-
+import Form from "./Form"
+import About from "./About"
 
 function App() {
 
@@ -24,13 +26,34 @@ function App() {
 
   useEffect(setMealPlanOnMount, [foodItems])
 
-
+  const [hide, setHide]=useState(true)
+  function handleHide(){
+    setHide(!hide)
+  }
+  
   return (
     <div className='App'>
-      <div className="banner">My FlatDiet</div>
+      <div className="banner">
+        <Link exact to="/" style={{ textDecoration:'none'}}><h1>My FlatDiet</h1></Link>
+        <Link exact to="/form" style={{ textDecoration:'none'}}><h2 id="form-link">Form</h2></Link>
+        <Link exact to="/about" style={{ textDecoration:'none'}}><h2 id="about-link">About</h2></Link>
+      </div>
       <div id="page-content">
-        <Sidebar setDietFilters={setDietFilters} dietFilters={dietFilters} mealPlan={mealPlan} setMealPlan={setMealPlan}/>
-        <FoodItemsContainer foodItems={foodItems} dietFilters={dietFilters} mealPlan={mealPlan} setMealPlan={setMealPlan}/>
+        <Switch>
+          <Route exact path="/">
+            <div id="flex-side">
+              {hide? <button id="sidebar-button" onClick={handleHide} >Hide Panel</button>: <button id="sidebar-button" onClick={handleHide} >Show Panel</button>}
+              {hide ? <Sidebar setDietFilters={setDietFilters} dietFilters={dietFilters} mealPlan={mealPlan} setMealPlan={setMealPlan}/> : null}
+            </div>
+            <FoodItemsContainer foodItems={foodItems} dietFilters={dietFilters} mealPlan={mealPlan} setMealPlan={setMealPlan}/>
+          </Route>
+          <Route path="/form">
+            <Form/>
+          </Route>
+          <Route path="/about">
+            <About/>
+          </Route>
+        </Switch>
       </div>
     </div>
   );

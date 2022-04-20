@@ -48,17 +48,17 @@ function FoodItemCard({foodItem, mealPlan, setMealPlan}) {
             <div className="image-container">
             <img src={image} alt={item_name} /> 
             </div>
-            <div className="card-title">
+            <div className="card-details">
                 <h3>{item_name}</h3>
             </div>
-            <div className="card-body">
+            <div className="card-details">
                 <p>Serving Size: {serving_size}</p> 
-                <p>Calories per Serving: {number_of_calories}</p> 
+                <p>Calories per Serving: {number_of_calories}</p>
             </div>
             {renderDiets}
             <form onSubmit={handleAddMeal}>
-                <input type="number" step="0.1" placeholder="Number of Servings" onChange={handleServings}></input>
-                <input type="submit" value="Add to Meal Plan" />
+                <input id="servings-input" type="number" step="0.1" placeholder="Number of Servings" onChange={handleServings}></input>
+                <input type="submit" value="Add to Meal Plan" id="card-button" />
             </form>
         </div>
     )

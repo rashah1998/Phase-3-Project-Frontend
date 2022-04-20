@@ -23,8 +23,9 @@ function MealPlanList({mealPlan, setMealPlan}) {
 
     const renderMealPlan = mealPlan.map(item => {
        return <li key={item.id}>
-                <h3>{item.item_name}</h3> <button id={item.id} name={item.item_name} onClick={handleRemoval}>Remove from Meal Plan</button>
+                <h3>{item.item_name}</h3>
                 <h4>Servings: {item.number_of_servings} Total Calories: {item.number_of_calories * item.number_of_servings}</h4>
+                <button id={item.id} name={item.item_name} onClick={handleRemoval}>Remove from Meal Plan</button>
             </li>
     })
 
@@ -33,7 +34,7 @@ function MealPlanList({mealPlan, setMealPlan}) {
     mealPlan.forEach(item => totalCalories += (item.number_of_calories * item.number_of_servings))
     
     return (
-        <div>
+        <div id="meal-plan-list">
             <h1>My Meal Plan</h1>
             {mealPlan.length === 0 ? null : <h2>Total Calories: {totalCalories}</h2>}
             <ol>
