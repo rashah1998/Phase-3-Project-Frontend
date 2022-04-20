@@ -1,6 +1,5 @@
-
 function Search({setDietFilters, dietFilters}) {
-    
+      
     function handleCheck(e) {
         const updateDietFilters = dietFilters.map((diet, index) => index === parseInt(e.target.value) ? !diet : diet)
         setDietFilters(updateDietFilters)
@@ -8,6 +7,7 @@ function Search({setDietFilters, dietFilters}) {
 
 
     return (
+        
         <div id="search-and-filter">
             <input id="search-bar" type="text" placeholder="Search for Food..."/>
             <fieldset id="filters">
@@ -32,6 +32,7 @@ function Search({setDietFilters, dietFilters}) {
         </div>
     )
 }
+
 
 export default Search;
     
