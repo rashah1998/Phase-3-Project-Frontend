@@ -1,6 +1,8 @@
+import React from "react"
 import FoodItemCard from "./FoodItemCard"
+import Sidebar from "./Sidebar"
 
-function FoodItemsContainer({foodItems, dietFilters, mealPlan, setMealPlan}){
+function FoodItemsContainer({foodItems, dietFilters, mealPlan, setMealPlan, searchFilter, hide, handleHide, setDietFilters, setSearchFilter}){
 
     const allDietOptions = ["Carnivorous", "Keto", "Pescatarian", "Vegan", "Vegetarian", "Mediterranean", "High Protein", "Paleo"]
 
@@ -15,9 +17,15 @@ function FoodItemsContainer({foodItems, dietFilters, mealPlan, setMealPlan}){
     const renderFoodItems = filteredFoodItems.map(foodItem => <FoodItemCard key={foodItem.id} foodItem={foodItem} mealPlan={mealPlan} setMealPlan={setMealPlan}/>)
 
     return (
-        <div id="food-items-container">
+        <React.Fragment>
+            <div id="flex-side">
+              {hide? <button id="sidebar-button" onClick={handleHide} >Hide Panel</button>: <button id="sidebar-button" onClick={handleHide} >Show Panel</button>}
+              {hide ? <Sidebar searchFilter={searchFilter} setSearchFilter={setSearchFilter} setDietFilters={setDietFilters} dietFilters={dietFilters} mealPlan={mealPlan} setMealPlan={setMealPlan}/> : null}
+            </div>
+            <div id="food-items-container">
             {renderFoodItems}
-        </div>
+            </div>
+        </React.Fragment>
     )
 }
 

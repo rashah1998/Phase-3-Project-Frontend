@@ -34,6 +34,7 @@ function FoodItemCard({foodItem, mealPlan, setMealPlan}) {
             if(mealPlan.some(item => item.item_name === updatedItem.item_name)){
                 const updateMealPlan = mealPlan
                 updateMealPlan[mealPlan.findIndex(item => item.item_name === updatedItem.item_name)].number_of_servings += parseInt(servings)
+                console.log(updateMealPlan)
                 setMealPlan(updateMealPlan)
             } else {
                 setMealPlan([...mealPlan, modifiedItem])

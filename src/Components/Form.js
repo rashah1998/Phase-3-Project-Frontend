@@ -4,7 +4,7 @@ function Form() {
 
 
   return (
-      <form action="results.html" method="GET" enctype="multipart/form-data">
+      <form>
         <div>
           <label for="name of item">Name of Item</label>
           <input type="text" name="name" id="name" required/>

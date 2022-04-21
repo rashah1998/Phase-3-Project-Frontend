@@ -1,7 +1,7 @@
 import Search from "./Search"
 import MealPlanList from "./MealPlanList"
 
-function Sidebar({setDietFilters, dietFilters, mealPlan, setMealPlan}) {
+function Sidebar({setDietFilters, dietFilters, mealPlan, setMealPlan, searchFilter, setSearchFilter}) {
 
     return (
         <div id="sidebar">

@@ -1,4 +1,6 @@
 
+import MealPlanItem from "./MealPlanItem"
+
 function MealPlanList({mealPlan, setMealPlan}) {
 
     function handleRemoval(e) {
