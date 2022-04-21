@@ -32,9 +32,8 @@ function FoodItemCard({foodItem, mealPlan, setMealPlan}) {
         }).then(resp => resp.json())
         .then(modifiedItem => {
             if(mealPlan.some(item => item.item_name === updatedItem.item_name)){
-                const updateMealPlan = mealPlan
+                const updateMealPlan = [...mealPlan]
                 updateMealPlan[mealPlan.findIndex(item => item.item_name === updatedItem.item_name)].number_of_servings += parseInt(servings)
-                console.log(updateMealPlan)
                 setMealPlan(updateMealPlan)
             } else {
                 setMealPlan([...mealPlan, modifiedItem])
@@ -58,7 +57,7 @@ function FoodItemCard({foodItem, mealPlan, setMealPlan}) {
             </div>
             {renderDiets}
             <form onSubmit={handleAddMeal}>
-                <input id="servings-input" type="number" step="0.1" placeholder="Number of Servings" onChange={handleServings}></input>
+                <input id="servings-input" type="number" step="1" placeholder="Number of Servings" onChange={handleServings} required/>
                 <input type="submit" value="Add to Meal Plan" id="card-button" />
             </form>
         </div>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import FoodItemsContainer from "./FoodItemsContainer";
-// import Sidebar from "./Sidebar";
 import Form from "./Form";
 import About from "./About";
 
@@ -73,18 +72,8 @@ function App() {
               />
             }
           />
-          {/* <div id="flex-side">
-              {hide? <button id="sidebar-button" onClick={handleHide} >Hide Panel</button>: <button id="sidebar-button" onClick={handleHide} >Show Panel</button>}
-              {hide ? <Sidebar searchFilter={searchFilter} setSearchFilter={setSearchFilter} setDietFilters={setDietFilters} dietFilters={dietFilters} mealPlan={mealPlan} setMealPlan={setMealPlan}/> : null}
-            </div> */}
-          {/* <FoodItemsContainer foodItems={foodItems} searchFilter={searchFilter} dietFilters={dietFilters} mealPlan={mealPlan} setMealPlan={setMealPlan}/> */}
-          {/* </Route> */}
-          <Route path="/form" element={<Form />} />
-          {/* <Form/>
-          </Route> */}
+          <Route path="/form" element={<Form setMealPlan={setMealPlan}/>} />
           <Route path="/about" element={<About />} />
-          {/* <About/>
-          </Route> */}
         </Routes>
       </div>
     </div>

@@ -1,53 +1,62 @@
+import {useState} from 'react'
 
+function Form({setMealPlan}) {
 
-function Form() {
+  const [newFoodItem, setNewFoodItem] = useState({
+    item_name: "",
+    number_of_calories: 0,
+    serving_size: "",
+    image: "",
+    number_of_servings: 0,
+    on_meal_plan: false,
+    diets: []
+  })
 
+  function handleChange(e) {
+    setNewFoodItem({...newFoodItem, [e.target.name]: e.target.value})
+  }
+
+  const dietArr = []   
+  document.querySelectorAll("input[type=checkbox]").forEach(diet => diet.checked ? dietArr.push(diet.name) : null)
+  setNewFoodItem({...newFoodItem, diets: [...dietArr]})
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    
+
+    e.target.reset();
+  }
 
   return (
-      <form>
-        <div>
-          <label for="name of item">Name of Item</label>
-          <input type="text" name="name" id="name" required/>
-        </div>
-        <div>
-        <label for="image">Image</label>
-        <img src="https://example.com/wp-content/uploads/2020/02/my_image.jpg" alt="placeholder" />
-      </div>
-      <div>
-        <label for="Serving Size">Age</label>
-        <input type="number" min="1" max="200" step="5"/>
-      </div>
-        
-      <div>
-        <label for="Calorie per Serving">Age</label>
-        <input type="number" min="1" max="200" step="5"/>
-      </div>
-        <div>
-        <h1>Choose Diet</h1>
+      <form onSubmit={handleSubmit}>
+        {console.log(newFoodItem)}
+        <label htmlFor="name of item">Name of Item:</label>
+        <input type="text" name="item_name" id="new-item-name" onChange={handleChange} required/>
+        <label htmlFor="image">Image URL:</label>
+        <input type="text" name="image" id="new-item-image" onChange={handleChange} required/>
+        <label htmlFor="Serving Size">Input the Serving Size With Units (i.e. "1 oz"):</label>
+        <input type="text" name="serving_size" onChange={handleChange} required/>
+        <label htmlFor="Calories per Serving">Calories Per Serving:</label>
+        <input type="number" min="1" name="number_of_calories" onChange={handleChange} required/>
 
-        <form action="/action_page.php">
-          <input type="checkbox" id="Carnivorous" name="Carnivorous" value="Carnivorous"/>
-          <label for="Carnivorous"> Carnivorous </label><br/>
-          <input type="checkbox" id="Keto" name="Keto" value="Keto"/>
-          <label for="Keto"> Keto </label><br/>
-          <input type="checkbox" id="Pescatarian" name="Pescatarian" value="Pescatarian"/>
-          <label for="Pescatarian"> Pescatarian </label><br/>
-          <input type="checkbox" id="Vegan" name="Vegan" value="Vegan"/>
-          <label for="vehicle1"> Vegan </label><br/>
-          <input type="checkbox" id="Vegetarian" name="Vegetarian" value="Vegetarian"/>
-          <label for="vehicle2"> Vegetarian </label><br/>
-          <input type="checkbox" id="Mediterranean" name="Mediterranean" value="Mediterranean"/>
-          <label for="Mediterranean"> Mediterranean</label><br/>
-          <input type="checkbox" id="High Protein" name="High Protein" value="High Protein"/>
-          <label for="vehicle3"> "High Protein"</label><br/>
-          <input type="checkbox" id="Paleo" name="Paleo" value="Paleo"/>
-          <label for="vehicle1"> "Paleo" </label><br/>
-          <input type="submit" value="Submit"/>
-        </form>
-      </div>
-
-      <button type="reset">Reset</button>
-      <button type="submit">Submit</button>
+        <h4>Choose the Diets for this Food:</h4>
+        <input type="checkbox" id="Carnivorous" name="Carnivorous" value="Carnivorous"/>
+        <label htmlFor="Carnivorous"> Carnivorous </label><br/>
+        <input type="checkbox" id="Keto" name="Keto" value="Keto"/>
+        <label htmlFor="Keto"> Keto </label><br/>
+        <input type="checkbox" id="Pescatarian" name="Pescatarian" value="Pescatarian"/>
+        <label htmlFor="Pescatarian"> Pescatarian </label><br/>
+        <input type="checkbox" id="Vegan" name="Vegan" value="Vegan"/>
+        <label htmlFor="Vegan"> Vegan </label><br/>
+        <input type="checkbox" id="Vegetarian" name="Vegetarian" value="Vegetarian"/>
+        <label htmlFor="Vegetarian"> Vegetarian </label><br/>
+        <input type="checkbox" id="Mediterranean" name="Mediterranean" value="Mediterranean"/>
+        <label htmlFor="Mediterranean"> Mediterranean</label><br/>
+        <input type="checkbox" id="High Protein" name="High Protein" value="High Protein"/>
+        <label htmlFor="High Protein"> High Protein</label><br/>
+        <input type="checkbox" id="Paleo" name="Paleo" value="Paleo"/>
+        <label htmlFor="Paleo"> Paleo </label><br/>
+        <input type="submit" value="Submit" />
     </form>
 
   )

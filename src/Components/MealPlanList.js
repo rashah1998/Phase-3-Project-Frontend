@@ -1,5 +1,5 @@
 
-import MealPlanItem from "./MealPlanItem"
+
 
 function MealPlanList({mealPlan, setMealPlan}) {
 
