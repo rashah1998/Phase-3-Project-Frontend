@@ -72,7 +72,7 @@ function App() {
               />
             }
           />
-          <Route path="/form" element={<Form setMealPlan={setMealPlan}/>} />
+          <Route path="/form" element={<Form setFoodItems={setFoodItems} foodItems={foodItems}/>} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
