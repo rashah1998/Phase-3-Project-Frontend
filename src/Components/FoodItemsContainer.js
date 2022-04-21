@@ -2,7 +2,7 @@ import React from "react"
 import FoodItemCard from "./FoodItemCard"
 import Sidebar from "./Sidebar"
 
-function FoodItemsContainer({foodItems, dietFilters, mealPlan, setMealPlan, searchFilter, hide, handleHide, setDietFilters, setSearchFilter}){
+function FoodItemsContainer({foodItems, dietFilters, mealPlan, setMealPlan, searchFilter, setSearchFilter, hide, handleHide, setDietFilters}){
 
     const allDietOptions = ["Carnivorous", "Keto", "Pescatarian", "Vegan", "Vegetarian", "Mediterranean", "High Protein", "Paleo"]
 
@@ -14,7 +14,8 @@ function FoodItemsContainer({foodItems, dietFilters, mealPlan, setMealPlan, sear
 
     foodItems.forEach(fooditem => filteredDietOptions.every(option => fooditem.diets.some(diet => diet.diet_name === option)) ? filteredFoodItems.push(fooditem) : null)
 
-    const renderFoodItems = filteredFoodItems.map(foodItem => <FoodItemCard key={foodItem.id} foodItem={foodItem} mealPlan={mealPlan} setMealPlan={setMealPlan}/>)
+    const renderFoodItems = filteredFoodItems.filter(fooditem => fooditem.item_name.toLowerCase().includes(searchFilter.toLowerCase()))
+    .map(foodItem => <FoodItemCard key={foodItem.id} foodItem={foodItem} mealPlan={mealPlan} setMealPlan={setMealPlan}/>)
 
     return (
         <React.Fragment>
