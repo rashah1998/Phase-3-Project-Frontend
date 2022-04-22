@@ -14,6 +14,13 @@ function FoodItemCard({foodItem, mealPlan, setMealPlan}) {
 
     function handleAddMeal(e) {
         e.preventDefault()
+
+        if (parseInt(servings) == 0 || servings == '') {
+            alert('Please enter a non-zero value')
+            setServings("")
+            e.target.reset();
+            return null
+        }
         
         const updatedItem = {
             ...foodItem,
