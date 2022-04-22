@@ -304,23 +304,3 @@ input[type="checkbox"]:checked{
 #form-background input[type="checkbox"]:checked{
   box-shadow: 0 0 0 3px #6c8cbf;
 }
-
-/* #circle-1, #circle-2{
-  background: white;
-  background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
-  height: 20rem;
-  width: 20rem;
-  position: absolute;
-  border-radius: 50%;
-}
-
-#circle-1{
-  top: 50%;
-  right: 80%;
-  z-index: -30;
-}
-
-#circle-2{
-  top: 5%;
-  left: 80%;
-} */
