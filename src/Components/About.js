@@ -1,6 +1,6 @@
 function About() {
     return(
-        <div> 
+        <div id='about-background'> 
             <h3 className="about-headers">Carnivorous</h3> 
             <p className="about-body">The carnivore diet is straightforward: eat only animal foods and stay away from all plant foods. This means that you get your energy primarily from protein and fat and consume close to zero carbohydrates. The carnivore diet means eliminating plant foods, so no fruits, vegetables, grains, nuts, seeds, or legumes.</p>
 

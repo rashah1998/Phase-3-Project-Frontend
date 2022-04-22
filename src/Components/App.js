@@ -50,7 +50,7 @@ function App() {
           <h2 id="form-link">Form</h2>
         </Link>
         <Link to="/about" style={{ textDecoration: "none" }}>
-          <h2 id="about-link">About</h2>
+          <h2 id="about-link">About the Plans</h2>
         </Link>
       </div>
       <div id="page-content">

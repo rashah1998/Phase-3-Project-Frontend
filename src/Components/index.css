@@ -310,3 +310,26 @@ input[type="checkbox"]:checked{
 #form-background input[type="checkbox"]:checked{
   box-shadow: 0 0 0 3px white;
 }
+
+#about-background{
+  background-color: linear-gradient(to top left,rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+  backdrop-filter: blur(30px);
+  max-width: 1500px;
+  padding: 20px 20px 18px 18px;
+  position: absolute;
+  right: 60px;
+  border: 3px solid white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.about-headers{
+  color: white;
+  font-size: 40px;
+  margin-bottom: -10px;
+}
+
+.about-body{
+  font-size: 23px;
+  margin-top: 20px;
+}
