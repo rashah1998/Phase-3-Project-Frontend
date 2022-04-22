@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function Form({setMealPlan}) {
+function Form({foodItems, setFoodItems}) {
 
   const [newFoodItem, setNewFoodItem] = useState({
     item_name: "",
@@ -9,14 +9,18 @@ function Form({setMealPlan}) {
     image: "",
     number_of_servings: 0,
     on_meal_plan: false,
-    diets: []
+    diets_to_add: []
   })
 
   function handleChange(e) {
-    setNewFoodItem({...newFoodItem, [e.target.name]: e.target.value})
+    if (e.target.type !== "checkbox") {
+      setNewFoodItem({...newFoodItem, [e.target.name]: e.target.value})
+    } else {
+      const dietArr = []   
+      document.querySelectorAll("input[type=checkbox]").forEach(diet => diet.checked ? dietArr.push(diet.name) : null)
+      setNewFoodItem({...newFoodItem, diets_to_add: [...dietArr]})
+    }
   }
-
- 
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -24,6 +28,15 @@ function Form({setMealPlan}) {
     const dietArr = []   
     document.querySelectorAll("input[type=checkbox]").forEach(diet => diet.checked ? dietArr.push(diet.name) : null)
     setNewFoodItem({...newFoodItem, diets: [...dietArr]})
+    fetch("http://localhost:9292/fooditems", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+        },
+      body: JSON.stringify(newFoodItem)
+    }).then(resp => resp.json())
+    .then(newItem => setFoodItems([...foodItems, newItem]))
 
     e.target.reset();
   }

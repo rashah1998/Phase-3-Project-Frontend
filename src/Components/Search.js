@@ -1,15 +1,17 @@
-function Search({setDietFilters, dietFilters}) {
+function Search({setDietFilters, dietFilters, setSearchFilter}) {
       
     function handleCheck(e) {
         const updateDietFilters = dietFilters.map((diet, index) => index === parseInt(e.target.value) ? !diet : diet)
         setDietFilters(updateDietFilters)
     }
-
+    function handleSearch(e) {
+        setSearchFilter(e.target.value)
+    }
 
     return (
         
         <div id="search-and-filter">
-            <input id="search-bar" type="text" placeholder="Search for Food..."/>
+            <input id="search-bar" type="text" placeholder="Search for Food..." onChange={handleSearch} />
             <fieldset id="filters">
                 <legend>Choose The Dietary Plan(s) That Fit Your Lifestyle:</legend>
                 <input type="checkbox" value={0} id="Carnivorous" onChange={handleCheck}/>

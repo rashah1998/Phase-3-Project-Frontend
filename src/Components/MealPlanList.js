@@ -18,8 +18,8 @@ function MealPlanList({mealPlan, setMealPlan}) {
             headers: {
                 'Content-Type': 'application/json',
                 Accept: 'application/json'
-              },
-              body: JSON.stringify(updatedItem)
+            },
+            body: JSON.stringify(updatedItem)
         }).then(setMealPlan(updateMealPlan))
     }
 
