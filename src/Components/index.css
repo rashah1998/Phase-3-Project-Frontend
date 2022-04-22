@@ -230,3 +230,97 @@ input[type="checkbox"]:checked{
   width: 425px;
   border-bottom: 5px solid white;
 }
+
+#form-background form{
+  color:#3f4760;
+  font-size: 20px;
+  max-width: 800px;
+  width: 100%;  
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(30px);
+  padding: 25px 30px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 10px;
+  margin-left: 50%;
+  display: inline-block;
+  margin-bottom: 30px;
+  z-index: 100;
+}
+
+#form-background form input{
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 20px;
+  color: #3f4760;
+  background: rgba(255,255,255,0.5);
+  border: 3px solid white;
+  border-radius: 10px;
+  width: 730px;
+  height: 40px;
+  cursor: pointer;
+  margin: 8px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+#form-background label{
+  font-size: 25px;
+  padding: 5px;
+  margin-left: -10px;
+  display: inline-block;
+}
+#form-background h4{
+  font-size: 35px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+#form-background h5{
+  font-size: 35px;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 5px;
+}
+#form-background h6{
+  position:relative;
+  font-size: 35px;
+  margin-top: 12px;
+  margin-bottom: 5px;
+  align-items: center;
+  display: inline;
+  margin-left: 10px;
+  bottom: 3.5px;
+}
+
+#form-background input[type="checkbox"]{
+  font-size: 5px;
+  display: inline-block;
+  width: 90px;
+  height: 25px;
+  margin-left: 250px;
+
+}
+#form-background input[type="checkbox"]:checked{
+  box-shadow: 0 0 0 3px #6c8cbf;
+}
+
+/* #circle-1, #circle-2{
+  background: white;
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+  height: 20rem;
+  width: 20rem;
+  position: absolute;
+  border-radius: 50%;
+}
+
+#circle-1{
+  top: 50%;
+  right: 80%;
+  z-index: -30;
+}
+
+#circle-2{
+  top: 5%;
+  left: 80%;
+} */
