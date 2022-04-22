@@ -269,6 +269,12 @@ input[type="checkbox"]:checked{
   padding: 5px;
   margin-left: -10px;
   display: inline-block;
+  cursor: pointer;
+}
+
+#form-background label:hover{
+  color: #ffffff;
+  cursor: pointer;
 }
 #form-background h4{
   font-size: 35px;
@@ -302,5 +308,5 @@ input[type="checkbox"]:checked{
 
 }
 #form-background input[type="checkbox"]:checked{
-  box-shadow: 0 0 0 3px #6c8cbf;
+  box-shadow: 0 0 0 3px white;
 }
